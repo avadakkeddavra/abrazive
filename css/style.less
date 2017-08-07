@@ -11,6 +11,8 @@
 @btn_color: #4b4b4b;
 @sans_font:'Open Sans', sans-serif;
 @roboto_font:'Roboto', sans-serif;
+@merri_font: 'Merriweather',serif;
+@raleway_font: 'Montserrat', sans-serif;
 body{
     
     font-family: 'Open Sans', sans-serif;
@@ -24,12 +26,14 @@ section{
     padding-bottom: 60px;
 }
 .h-section{
+	font-family: @roboto_font;
     font-size: 28px;
     font-weight: 400;
     padding: 30px 0px;
     padding-bottom: 0;
     margin-bottom: 0;
-    text-transform: capitalize;
+    text-transform: uppercase;
+	font-weight: bold;
     &:after{
         content: '';
         display: block;
@@ -41,38 +45,42 @@ section{
 }
 .btn-template-main{
     text-transform: uppercase;
-//    background-color: #fff;
+//    background-color: #fff; 
     border:3px solid #fff;
     color:#fff;
     font-weight: bold;
     position: relative;
     z-index: 2;
-    
+    transition: 0.3s;
     padding: 15px 30px;
     position: relative;
-    &:before{
-        content: 'Подробнее';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        color:@btn_color;
-        display: block;
-        background-color: #fff;
-        font-weight: bold;
-        padding: 15px 30px;
-        opacity: 0;
-        transition: 0.3s all ease;
-    }
-    &:hover:before{
-        width: 100%;
-        opacity: 1;
-    }
+	&:before{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: block;
+		left: 0;
+		transition: 0.3s;
+		top: 0;
+	}
+	&:hover{
+		border-color: #e03f3f;
+		color: #e03f3f;
+	}
+	&:hover:before{
+		box-shadow: 0px 0px 10px 30px #ffffff;
+		opacity: 0;
+	}
 }
 .menu-row{
     margin: 0;
-    background-color: rgba(40, 40, 40, 0.95);
+    background-color: rgba(40, 40, 40, 0.84);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
     .logo{
         line-height: 70px;
         text-align: center;
@@ -84,6 +92,7 @@ section{
             font-size: 25px;
             display: inline-block;
             padding-left: 20px;
+			font-family: @raleway_font;
             font-weight: bold;
             color: #fff;
             line-height: 74px;
@@ -99,18 +108,19 @@ section{
                 margin: 0;
                 float: left;
                 transition: 0.3s;
-                  &.active{
-                        background-color: #2a2a2a;
-                    }
+				&.active a{
+					color: #e03f3f;
+				}
                 a{
                     padding: 0px 20px;
                     display: block;
                     line-height: 75px;
                     text-transform: uppercase;
                     font-weight: bold;
-                    font-size: 13px;
+                    font-size: 11px;
                     text-decoration: none;
                     color: @link-strong;
+					font-family: @merri_font;
                   
                 }
                &:hover{
@@ -123,9 +133,12 @@ section{
 header{
     #slider-main{
         overflow: hidden;
-        height: 600px;
+        height: 700px;
+		padding: 0 !important;
         figure{
-            height: 600px;
+            height: 700px;
+			padding: 0 !important;
+			margin: 0;
             background-size: cover;
             position: relative;
             .bg-overlay{
@@ -142,19 +155,19 @@ header{
                 width: 100%;
                 position: relative;
                 z-index: 3;
-                top: 20%;
+                top: 30%;
                 .pre-header{
                     color: #fff;
                     font-weight: lighter;
                     font-size: 14px;
+					margin-top: 40px;
                 }
                 h1{
-                    margin-top: 40px;
-                    font-family: @sans_font;
+                    margin-top: 20px;
                     text-transform: uppercase;
                     font-weight: bold;
-                    font-size: 60px;
-                    letter-spacing: 5px;
+                    font-size: 50px;
+					font-family: @raleway_font; 
                     color: #fff;
                     margin-bottom: 0;
                     position: relative;
@@ -164,8 +177,10 @@ header{
                     color: #fff;
                     font-size: 18px;
                     font-weight: 300;
-                    padding: 50px 0px;
+                    width: 60%;
+					margin: 0 auto;
                     position: relative;
+					padding: 40px 0px;
                     z-index: 1;
                 }
                 .desc-container{
@@ -175,12 +190,12 @@ header{
                     &:after{
                         content: '';
                         position: absolute;
-                        width: 50%;
-                        height:500px;
-                        top: -50px;
+                        width: 45%;
+                        height:450px;
+                        top: -20px;
                         left: 50%;
                         z-index: 0;
-                        margin: 0px -25%;
+                        margin: 0px -22.5%;
                         border:20px solid rgba(180, 149, 67, 0.56);
                     }
                     .btn-template-main{
@@ -193,7 +208,20 @@ header{
     }
 }
 .categories{
-    background-color: #333;
+   background:url('../img/projects%20(1).jpg') center/cover;
+	position: relative;
+	.bg-overlay{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: rgba(36, 36, 36, 0.9);
+	}
+	.container{
+		position: relative;
+		z-index: 1;
+	}
     .h-section{
         color: #fff;
     }
